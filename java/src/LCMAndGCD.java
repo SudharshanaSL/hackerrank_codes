@@ -25,7 +25,7 @@ import java.util.Scanner;
 /**
  * Created by ls on 1/19/2019.
  */
-public class TwoNumberGCD {
+public class LCMAndGCD {
     public static void main (String[] args) {
         //code
         Scanner in = new Scanner(System.in);
@@ -34,15 +34,34 @@ public class TwoNumberGCD {
             T--;
             int A = in.nextInt();
             int B = in.nextInt();
-            int min = minFour(A, B, A/2, B/2);
-            int gcd = 1;
-            for(int i = 1; i <= min; i++) {
-                if((A%i == 0) &&
-                        (B%i == 0))
-                    gcd = i;
-            }
-            System.out.println(gcd);
+            LCM(A, B);
+            GCD(A,B);
         }
+    }
+
+    static int LCM(int A, int B) {
+        int copyA = A;
+        int copyB = B;
+        while (copyA != copyB) {
+            if(copyA < copyB)
+                copyA += A;
+            else
+                copyB += B;
+        }
+        System.out.println(copyA);
+        return copyA;
+    }
+
+    static int GCD(int A, int B) {
+        int min = minFour(A, B, A/2, B/2);
+        int gcd = 1;
+        for(int i = 1; i <= min; i++) {
+            if((A%i == 0) &&
+                    (B%i == 0))
+                gcd = i;
+        }
+        System.out.println(gcd);
+        return gcd;
     }
 
     static int minTwo(int a, int b) {
