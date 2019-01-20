@@ -31,6 +31,7 @@ import java.util.Scanner;
             T--;
             isPrime(N);
         }
+        in.close();
     }
 
     static void isPrime(int num) {
